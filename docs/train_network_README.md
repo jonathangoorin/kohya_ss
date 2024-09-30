@@ -19,7 +19,22 @@ LoRA-C3Lier may yield higher precision as it applies to more layers than LoRA-Li
 We use the `train_network.py` script for training. A higher learning rate, between `1e-4` to `1e-3`, is recommended for LoRA.
 
 ```bash
-accelerate launch --num_cpu_threads_per_process 1 train_network.py     --pretrained_model_name_or_path=<path_to_pretrained_model>     --dataset_config=<data_config>.toml     --output_dir=<output_directory>     --output_name=<output_name>     --save_model_as=safetensors     --prior_loss_weight=1.0     --max_train_steps=400     --learning_rate=1e-4     --optimizer_type="AdamW8bit"     --xformers     --mixed_precision="fp16"     --cache_latents     --gradient_checkpointing     --save_every_n_epochs=1     --network_module=networks.lora
+accelerate launch --num_cpu_threads_per_process 1 train_network.py        
+      --pretrained_model_name_or_path=<path_to_pretrained_model>
+      --dataset_config=<data_config>.toml     
+      --output_dir=<output_directory>     
+      --output_name=<output_name>     
+      --save_model_as=safetensors     
+      --prior_loss_weight=1.0     
+      --max_train_steps=400     
+      --learning_rate=1e-4     
+      --optimizer_type="AdamW8bit"     
+      --xformers     
+      --mixed_precision="fp16"     
+      --cache_latents     
+      --gradient_checkpointing     
+      --save_every_n_epochs=1     
+      --network_module=networks.lora
 ```
 
 For more details, please refer to the [common training document](./train_README-ja.md).
